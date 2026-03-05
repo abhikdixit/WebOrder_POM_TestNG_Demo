@@ -99,6 +99,20 @@ public class WebOrders_OrdersPage {
 
 	@FindBy(xpath = "//span[normalize-space()=\"Invalid format. Required format is mm/yy.\"]")
 	WebElement errInvalidExpiry;
+	
+	@FindBy(id = "ctl00_MainContent_fmwOrder_txtUnitPrice")
+	WebElement txtUnitPrice;
+
+	@FindBy(id = "ctl00_MainContent_fmwOrder_txtDiscount")
+	WebElement txtDiscount;
+
+	public String getUnitPrice() {
+	    return txtUnitPrice.getAttribute("value");
+	}
+
+	public String getDiscount() {
+	    return txtDiscount.getAttribute("value");
+	}
 
 	public String getFieldValue(WebElement element) {
 		System.out.println(element.getText()+ " " +element.getAccessibleName());
@@ -190,7 +204,7 @@ public class WebOrders_OrdersPage {
 			clickCalculate();
 			System.out.println(errEmptyQty.getText());
 			Assert.assertTrue(errEmptyQty.isDisplayed());
-	Thread.sleep(10000);
+			Thread.sleep(10000);
 			break;
 		case "invalid_quantity":
 			enterQuantity(qty);

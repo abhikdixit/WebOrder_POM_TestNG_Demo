@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results total="5" passed="3" failed="2" skipped="0">
+<testng-results total="3" passed="3" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-11-21T09:48:43Z" name="Page Object test example" finished-at="2025-11-21T09:49:02Z" duration-ms="19446">
+  <suite started-at="2026-03-05T07:03:27Z" name="Page Object test example" finished-at="2026-03-05T07:03:59Z" duration-ms="32287">
     <groups>
     </groups>
-    <test started-at="2025-11-21T09:48:43Z" name="test-1" finished-at="2025-11-21T09:49:02Z" duration-ms="19446">
-      <class name="com.webOrders.test.WebOrder_ViewAllOrders_Test">
-        <test-method is-config="true" signature="SetUp(java.lang.String)[pri:0, instance:com.webOrders.test.WebOrder_ViewAllOrders_Test@3b5fad2d]" started-at="2025-11-21T15:18:43Z" name="SetUp" finished-at="2025-11-21T15:18:43Z" duration-ms="366" status="PASS">
+    <test started-at="2026-03-05T07:03:27Z" name="test-1" finished-at="2026-03-05T07:03:59Z" duration-ms="32287">
+      <class name="com.webOrders.test.WebOrders_Login">
+        <test-method is-config="true" signature="SetUp(java.lang.String)[pri:0, instance:com.webOrders.test.WebOrders_Login@3b6ddd1d]" started-at="2026-03-05T12:33:27Z" name="SetUp" finished-at="2026-03-05T12:33:27Z" duration-ms="222" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -18,7 +18,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- SetUp -->
-        <test-method is-config="true" signature="initializeTestBaseSetup(java.lang.String, java.lang.String)[pri:0, instance:com.webOrders.test.WebOrder_ViewAllOrders_Test@3b5fad2d]" started-at="2025-11-21T15:18:43Z" name="initializeTestBaseSetup" finished-at="2025-11-21T15:18:49Z" duration-ms="5684" status="PASS">
+        <test-method is-config="true" signature="initializeTestBaseSetup(java.lang.String, java.lang.String)[pri:0, instance:com.webOrders.test.WebOrders_Login@3b6ddd1d]" started-at="2026-03-05T12:33:27Z" name="initializeTestBaseSetup" finished-at="2026-03-05T12:33:30Z" duration-ms="2732" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -34,140 +34,60 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- initializeTestBaseSetup -->
-        <test-method is-config="true" signature="setUp()[pri:0, instance:com.webOrders.test.WebOrder_ViewAllOrders_Test@3b5fad2d]" started-at="2025-11-21T15:18:49Z" name="setUp" finished-at="2025-11-21T15:18:49Z" duration-ms="21" status="PASS">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.webOrders.test.WebOrders_Login@3b6ddd1d]" started-at="2026-03-05T12:33:30Z" name="setUp" finished-at="2026-03-05T12:33:30Z" duration-ms="26" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method signature="verifyCheckAll()[pri:0, instance:com.webOrders.test.WebOrder_ViewAllOrders_Test@3b5fad2d]" started-at="2025-11-21T15:18:49Z" name="verifyCheckAll" description="Validate check all button" finished-at="2025-11-21T15:18:59Z" duration-ms="9911" status="PASS">
+        <test-method signature="loginTest()[pri:0, instance:com.webOrders.test.WebOrders_Login@3b6ddd1d]" started-at="2026-03-05T12:33:30Z" name="loginTest" description="Login and validate the WebOrder Homepage Text" finished-at="2026-03-05T12:33:41Z" duration-ms="11147" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- verifyCheckAll -->
-        <test-method is-config="true" signature="takeScreenshot(org.testng.ITestResult)[pri:0, instance:com.webOrders.test.WebOrder_ViewAllOrders_Test@3b5fad2d]" started-at="2025-11-21T15:18:59Z" name="takeScreenshot" finished-at="2025-11-21T15:18:59Z" duration-ms="8" status="PASS">
+        </test-method> <!-- loginTest -->
+        <test-method is-config="true" signature="takeScreenshot(org.testng.ITestResult)[pri:0, instance:com.webOrders.test.WebOrders_Login@3b6ddd1d]" started-at="2026-03-05T12:33:41Z" name="takeScreenshot" finished-at="2026-03-05T12:33:41Z" duration-ms="12" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=verifyCheckAll status=SUCCESS method=WebOrder_ViewAllOrders_Test.verifyCheckAll()[pri:0, instance:com.webOrders.test.WebOrder_ViewAllOrders_Test@3b5fad2d] output={null}]]]>
+                <![CDATA[[TestResult name=loginTest status=SUCCESS method=WebOrders_Login.loginTest()[pri:0, instance:com.webOrders.test.WebOrders_Login@3b6ddd1d] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- takeScreenshot -->
-        <test-method signature="verifyUnCheckAll()[pri:0, instance:com.webOrders.test.WebOrder_ViewAllOrders_Test@3b5fad2d]" started-at="2025-11-21T15:18:59Z" name="verifyUnCheckAll" description="Validate uncheck all button" finished-at="2025-11-21T15:18:59Z" duration-ms="487" status="PASS">
+        <test-method signature="urlTest()[pri:0, instance:com.webOrders.test.WebOrders_Login@3b6ddd1d]" started-at="2026-03-05T12:33:41Z" name="urlTest" description="validateURL() method call for URL verification" finished-at="2026-03-05T12:33:49Z" duration-ms="8579" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- verifyUnCheckAll -->
-        <test-method is-config="true" signature="takeScreenshot(org.testng.ITestResult)[pri:0, instance:com.webOrders.test.WebOrder_ViewAllOrders_Test@3b5fad2d]" started-at="2025-11-21T15:18:59Z" name="takeScreenshot" finished-at="2025-11-21T15:18:59Z" duration-ms="1" status="PASS">
+        </test-method> <!-- urlTest -->
+        <test-method is-config="true" signature="takeScreenshot(org.testng.ITestResult)[pri:0, instance:com.webOrders.test.WebOrders_Login@3b6ddd1d]" started-at="2026-03-05T12:33:49Z" name="takeScreenshot" finished-at="2026-03-05T12:33:49Z" duration-ms="1" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=verifyUnCheckAll status=SUCCESS method=WebOrder_ViewAllOrders_Test.verifyUnCheckAll()[pri:0, instance:com.webOrders.test.WebOrder_ViewAllOrders_Test@3b5fad2d] output={null}]]]>
+                <![CDATA[[TestResult name=urlTest status=SUCCESS method=WebOrders_Login.urlTest()[pri:0, instance:com.webOrders.test.WebOrders_Login@3b6ddd1d] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- takeScreenshot -->
-        <test-method signature="verifyDeleteOrder()[pri:0, instance:com.webOrders.test.WebOrder_ViewAllOrders_Test@3b5fad2d]" started-at="2025-11-21T15:18:59Z" name="verifyDeleteOrder" description="Validate user can delete an order" finished-at="2025-11-21T15:19:00Z" duration-ms="1245" status="PASS">
+        <test-method signature="verifyText()[pri:0, instance:com.webOrders.test.WebOrders_Login@3b6ddd1d]" started-at="2026-03-05T12:33:49Z" name="verifyText" description="validateTitle() method call for Title verification" finished-at="2026-03-05T12:33:57Z" duration-ms="8060" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- verifyDeleteOrder -->
-        <test-method is-config="true" signature="takeScreenshot(org.testng.ITestResult)[pri:0, instance:com.webOrders.test.WebOrder_ViewAllOrders_Test@3b5fad2d]" started-at="2025-11-21T15:19:00Z" name="takeScreenshot" finished-at="2025-11-21T15:19:00Z" duration-ms="1" status="PASS">
+        </test-method> <!-- verifyText -->
+        <test-method is-config="true" signature="takeScreenshot(org.testng.ITestResult)[pri:0, instance:com.webOrders.test.WebOrders_Login@3b6ddd1d]" started-at="2026-03-05T12:33:57Z" name="takeScreenshot" finished-at="2026-03-05T12:33:57Z" duration-ms="1" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=verifyDeleteOrder status=SUCCESS method=WebOrder_ViewAllOrders_Test.verifyDeleteOrder()[pri:0, instance:com.webOrders.test.WebOrder_ViewAllOrders_Test@3b5fad2d] output={null}]]]>
+                <![CDATA[[TestResult name=verifyText status=SUCCESS method=WebOrders_Login.verifyText()[pri:0, instance:com.webOrders.test.WebOrders_Login@3b6ddd1d] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- takeScreenshot -->
-        <test-method signature="verifyEditOrder(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:com.webOrders.test.WebOrder_ViewAllOrders_Test@3b5fad2d]" started-at="2025-11-21T15:19:00Z" name="verifyEditOrder" description="Validate user can edit an order" data-provider="Update Form" finished-at="2025-11-21T15:19:00Z" duration-ms="0" status="FAIL">
-          <exception class="org.testng.TestNGException">
-            <message>
-              <![CDATA[
-DataProvider should be static: public java.lang.Object[][] com.webOrders.utils.WebOrders_TestData.UpdateOrderForm()]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[org.testng.TestNGException: 
-DataProvider should be static: public java.lang.Object[][] com.webOrders.utils.WebOrders_TestData.UpdateOrderForm()
-	at org.testng.internal.Parameters.findDataProvider(Parameters.java:331)
-	at org.testng.internal.Parameters.findDataProvider(Parameters.java:265)
-	at org.testng.internal.Parameters.handleParameters(Parameters.java:417)
-	at org.testng.internal.Invoker.handleParameters(Invoker.java:1383)
-	at org.testng.internal.Invoker.createParameters(Invoker.java:1075)
-	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1180)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:127)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
-	at org.testng.TestRunner.privateRun(TestRunner.java:767)
-	at org.testng.TestRunner.run(TestRunner.java:617)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:348)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:343)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:305)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:254)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1224)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1149)
-	at org.testng.TestNG.run(TestNG.java:1057)
-	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:295)
-	at org.apache.maven.surefire.testng.TestNGXmlTestSuite.execute(TestNGXmlTestSuite.java:84)
-	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:90)
-	at org.apache.maven.surefire.booter.ForkedBooter.invokeProviderInSameClassLoader(ForkedBooter.java:203)
-	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:155)
-	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:103)
-]]>
-            </full-stacktrace>
-          </exception> <!-- org.testng.TestNGException -->
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verifyEditOrder -->
-        <test-method signature="verifyError(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:com.webOrders.test.WebOrder_ViewAllOrders_Test@3b5fad2d]" started-at="2025-11-21T15:19:00Z" name="verifyError" description="Validate error is displayed while editing an order with invalid Data" data-provider="Update Order Form Error" finished-at="2025-11-21T15:19:00Z" duration-ms="0" status="FAIL">
-          <exception class="org.testng.TestNGException">
-            <message>
-              <![CDATA[
-DataProvider should be static: public java.lang.Object[][] com.webOrders.utils.WebOrders_TestData.verifyOrderFormError()]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[org.testng.TestNGException: 
-DataProvider should be static: public java.lang.Object[][] com.webOrders.utils.WebOrders_TestData.verifyOrderFormError()
-	at org.testng.internal.Parameters.findDataProvider(Parameters.java:331)
-	at org.testng.internal.Parameters.findDataProvider(Parameters.java:265)
-	at org.testng.internal.Parameters.handleParameters(Parameters.java:417)
-	at org.testng.internal.Invoker.handleParameters(Invoker.java:1383)
-	at org.testng.internal.Invoker.createParameters(Invoker.java:1075)
-	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1180)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:127)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
-	at org.testng.TestRunner.privateRun(TestRunner.java:767)
-	at org.testng.TestRunner.run(TestRunner.java:617)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:348)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:343)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:305)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:254)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1224)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1149)
-	at org.testng.TestNG.run(TestNG.java:1057)
-	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:295)
-	at org.apache.maven.surefire.testng.TestNGXmlTestSuite.execute(TestNGXmlTestSuite.java:84)
-	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:90)
-	at org.apache.maven.surefire.booter.ForkedBooter.invokeProviderInSameClassLoader(ForkedBooter.java:203)
-	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:155)
-	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:103)
-]]>
-            </full-stacktrace>
-          </exception> <!-- org.testng.TestNGException -->
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verifyError -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.webOrders.test.WebOrder_ViewAllOrders_Test@3b5fad2d]" started-at="2025-11-21T15:19:00Z" name="tearDown" finished-at="2025-11-21T15:19:02Z" duration-ms="1708" status="PASS">
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.webOrders.test.WebOrders_Login@3b6ddd1d]" started-at="2026-03-05T12:33:57Z" name="tearDown" finished-at="2026-03-05T12:33:59Z" duration-ms="1498" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-      </class> <!-- com.webOrders.test.WebOrder_ViewAllOrders_Test -->
+      </class> <!-- com.webOrders.test.WebOrders_Login -->
     </test> <!-- test-1 -->
   </suite> <!-- Page Object test example -->
 </testng-results>

@@ -68,5 +68,16 @@ public class WebOrders_TestData {
 		return testObjArray;
 
 	}
+	
+	@DataProvider(name = "ProductPrice")
+	public Object[][] productPrice() {
+
+	    return new Object[][] {
+	        {"MyMoney", "$100"},
+	        {"FamilyAlbum", "$80"},
+	        {"ScreenSaver", "$20"}
+	    };
+
+	}
 
 }

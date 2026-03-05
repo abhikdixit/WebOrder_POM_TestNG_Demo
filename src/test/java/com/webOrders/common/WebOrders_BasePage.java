@@ -26,7 +26,6 @@ public class WebOrders_BasePage{
 	WebElement lnLogout;
 	
 	
-	
 
 	public static WebDriver getDriver() {
 		return driver;

@@ -30,7 +30,7 @@
 					<suiteXmlFiles>
 						<!-- TestNG suite XML files -->
 						<!-- suiteXmlFile>SmokeTest.xml</suiteXmlFile> -->
-						<suiteXmlFile>ViewAllIOrdersTest.xml</suiteXmlFile>
+						<suiteXmlFile>LoginTest.xml</suiteXmlFile>
 					</suiteXmlFiles>
 				</configuration>
 			</plugin>

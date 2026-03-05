@@ -3,20 +3,16 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.webOrders.test.WebOrder_ViewAllOrders_Test">
+      <class name="com.webOrders.test.WebOrders_Login">
         <methods>
-          <include name="tearDown"/>
-          <include name="takeScreenshot"/>
-          <include name="verifyError"/>
-          <include name="verifyUnCheckAll"/>
           <include name="setUp"/>
-          <include name="verifyCheckAll"/>
+          <include name="tearDown"/>
+          <include name="loginTest"/>
+          <include name="takeScreenshot"/>
           <include name="initializeTestBaseSetup"/>
-          <include name="verifyEditOrder"/>
-          <include name="verifyDeleteOrder"/>
           <include name="SetUp"/>
         </methods>
-      </class> <!-- com.webOrders.test.WebOrder_ViewAllOrders_Test -->
+      </class> <!-- com.webOrders.test.WebOrders_Login -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

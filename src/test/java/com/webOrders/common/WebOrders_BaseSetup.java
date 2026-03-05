@@ -37,7 +37,7 @@ public class WebOrders_BaseSetup {
 	protected static ExtentTest test;
 
 	String filePath = "\\SCREENSHOTS";
-	String extendReportPath = "/test-output/ExtentReportResults.html";
+	String extendReportPath = "/test-output/WebOrderExtentReportResults.html";
 
 	public WebDriver getDriver() {
 		return driver;
