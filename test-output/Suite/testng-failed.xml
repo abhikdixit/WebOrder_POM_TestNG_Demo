@@ -8,16 +8,16 @@
   </listeners>
   <test thread-count="5" parallel="tests" name="test-1(failed)">
     <classes>
-      <class name="com.webOrders.test.WebOrder_Product_Price_Discount_Verification">
+      <class name="com.webOrders.test.WebOrder_ViewAllOrders_Test">
         <methods>
-          <include name="takeScreenshot"/>
-          <include name="verifyProductPrice" invocation-numbers="0 1 2"/>
-          <include name="initializeTestBaseSetup"/>
           <include name="tearDown"/>
-          <include name="SetUp"/>
+          <include name="takeScreenshot"/>
           <include name="setUp"/>
+          <include name="verifyCheckAll"/>
+          <include name="initializeTestBaseSetup"/>
+          <include name="SetUp"/>
         </methods>
-      </class> <!-- com.webOrders.test.WebOrder_Product_Price_Discount_Verification -->
+      </class> <!-- com.webOrders.test.WebOrder_ViewAllOrders_Test -->
     </classes>
   </test> <!-- test-1(failed) -->
 </suite> <!-- Failed suite [Suite] -->

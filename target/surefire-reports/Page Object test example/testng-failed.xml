@@ -5,18 +5,18 @@
   <parameter name="browserType" value="edge"/>
   <test parallel="none" name="test-1(failed)">
     <classes>
-      <class name="com.webOrders.test.WebOrder_ViewAllOrders_Test">
+      <class name="com.webOrders.test.WebOrders_Login">
         <methods>
-          <include name="verifyEditOrder"/>
-          <include name="verifyError"/>
+          <include name="loginTest"/>
           <include name="SetUp"/>
           <include name="tearDown"/>
-          <include name="setUp"/>
+          <include name="urlTest"/>
           <include name="initializeTestBaseSetup"/>
-          <include name="verifyUnCheckAll"/>
+          <include name="setUp"/>
+          <include name="verifyText"/>
           <include name="takeScreenshot"/>
         </methods>
-      </class> <!-- com.webOrders.test.WebOrder_ViewAllOrders_Test -->
+      </class> <!-- com.webOrders.test.WebOrders_Login -->
     </classes>
   </test> <!-- test-1(failed) -->
 </suite> <!-- Failed suite [Page Object test example] -->

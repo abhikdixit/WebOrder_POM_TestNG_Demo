@@ -1,22 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite parallel="none" name="Failed suite [Page Object test example]" verbose="0">
+<suite thread-count="4" name="Failed suite [WebOrder Page Object Model TestNGDemo]" verbose="0">
   <parameter name="appURL" value="http://secure.smartbearsoftware.com/samples/TestComplete11/WebOrders/Login.aspx?ReturnUrl=%2fsamples%2fTestComplete11%2fWebOrders%2fDefault.aspx"/>
   <parameter name="browserType" value="edge"/>
-  <test parallel="none" name="test-1(failed)">
+  <listeners>
+    <listener class-name="com.webOrders.utils.Listeners"/>
+  </listeners>
+  <test name="test-1(failed)">
     <classes>
+      <class name="com.webOrders.test.WebOrders_Login">
+        <methods>
+          <include name="SetUp"/>
+          <include name="tearDown"/>
+          <include name="initializeTestBaseSetup"/>
+          <include name="setUp"/>
+          <include name="takeScreenshot"/>
+        </methods>
+      </class> <!-- com.webOrders.test.WebOrders_Login -->
+      <class name="com.webOrders.test.WebOrder_Product_Price_Discount_Verification">
+        <methods>
+          <include name="verifyProductPrice"/>
+          <include name="initializeTestBaseSetup"/>
+          <include name="tearDown"/>
+          <include name="setUp"/>
+        </methods>
+      </class> <!-- com.webOrders.test.WebOrder_Product_Price_Discount_Verification -->
       <class name="com.webOrders.test.WebOrder_ViewAllOrders_Test">
         <methods>
           <include name="verifyEditOrder"/>
           <include name="verifyError"/>
-          <include name="SetUp"/>
           <include name="tearDown"/>
           <include name="setUp"/>
           <include name="initializeTestBaseSetup"/>
-          <include name="verifyUnCheckAll"/>
           <include name="takeScreenshot"/>
         </methods>
       </class> <!-- com.webOrders.test.WebOrder_ViewAllOrders_Test -->
+      <class name="com.webOrders.test.WebOrder_Order_Test">
+        <methods>
+          <include name="createAndVerifyOrder"/>
+          <include name="tearDown"/>
+          <include name="initializeTestBaseSetup"/>
+          <include name="setUp"/>
+        </methods>
+      </class> <!-- com.webOrders.test.WebOrder_Order_Test -->
     </classes>
   </test> <!-- test-1(failed) -->
-</suite> <!-- Failed suite [Page Object test example] -->
+</suite> <!-- Failed suite [WebOrder Page Object Model TestNGDemo] -->

@@ -13,4 +13,5 @@ com\webOrders\home\WebOrders_EditOrderPage.class
 com\webOrders\home\WebOrders_OrdersPage.class
 com\webOrders\home\WebOrders_ViewAllOrdersPage.class
 com\webOrders\test\WebOrder_Order_Test.class
+com\webOrders\test\WebOrder_Product_Price_Discount_Verification.class
 com\webOrders\utils\WebOrders_ExcelParsing.class

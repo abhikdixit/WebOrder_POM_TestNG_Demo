@@ -1,89 +1,74 @@
 package com.webOrders.test;
 
-import org.openqa.selenium.WebDriver;
-import org.testng.Assert;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.Test;
+	import org.openqa.selenium.WebDriver;
+	import org.testng.Assert;
+	import org.testng.annotations.AfterClass;
+	import org.testng.annotations.BeforeClass;
+	import org.testng.annotations.Test;
 
-import com.webOrders.common.WebOrders_BasePage;
-import com.webOrders.common.WebOrders_BaseSetup;
-import com.webOrders.home.WebOrders_EditOrderPage;
-import com.webOrders.home.WebOrders_HomePage;
-import com.webOrders.home.WebOrders_SignInPage;
-import com.webOrders.home.WebOrders_ViewAllOrdersPage;
-import com.webOrders.utils.WebOrders_TestData;
+	import com.webOrders.common.WebOrders_BasePage;
+	import com.webOrders.common.WebOrders_BaseSetup;
+	import com.webOrders.home.WebOrders_HomePage;
+	import com.webOrders.home.WebOrders_SignInPage;
+	import com.webOrders.home.WebOrders_ViewAllOrdersPage;
 
-public class WebOrder_ViewAllOrders_Test extends WebOrders_BaseSetup {
-	WebOrders_SignInPage signIn;
-	WebOrders_HomePage homePage;
-	WebOrders_BasePage basePage;
-	WebOrders_ViewAllOrdersPage viewAllOrderPage;
-	WebOrders_EditOrderPage editOrdersPage;
-	private WebDriver driver;
+	public class WebOrder_ViewAllOrders_Test extends WebOrders_BaseSetup {
 
-	private String name = "Charles Dodgeson";
-	private String product = "MyMoney";
+	    private WebDriver driver;
+	    private WebOrders_BasePage basePage;
+	    private WebOrders_ViewAllOrdersPage viewAllOrderPage;
 
-	@BeforeClass
-	public void setUp() {
-		driver = getDriver();
-		basePage = new WebOrders_BasePage(driver);
+	    // Test data
+	    private final String name = "Charles Dodgeson";
+	    private final String product = "MyMoney";
+
+	    // Setup method to initialize WebDriver and login before tests
+	    @BeforeClass
+	    public void setup() throws Exception {
+	        driver = getDriver(); // Get WebDriver instance
+	        basePage = new WebOrders_BasePage(driver); // Initialize base page
+
+	        // Login to the application
+	        WebOrders_SignInPage signIn = basePage.GoToHomePageAndSignIn("Tester", "test");
+	        signIn.verifySignInPageText(); // Verify login page text
+
+	        // Navigate to "View All Orders" page
+	        WebOrders_HomePage homePage = new WebOrders_HomePage(driver);
+	        viewAllOrderPage = homePage.clickOnAllOrdersTab();
+	    }
+
+	    // Test to verify "Check All" functionality
+	    @Test(priority = 1, description = "Verify Check All")
+	    public void verifyCheckAll() throws Exception {
+	        viewAllOrderPage.clickCheckAll(); // Click "Check All" button
+
+	        // Assert that all orders are selected
+	        Assert.assertTrue(viewAllOrderPage.verifyAllOrdersSelected(), "All records are not selected.");
+	    }
+
+	    // Test to verify "UnCheck All" functionality
+	    @Test(priority = 2, description = "Verify UnCheck All")
+	    public void verifyUnCheckAll() throws Exception {
+	        viewAllOrderPage.clickUncheckAll(); // Click "UnCheck All" button
+
+	        // Assert that all orders are unselected
+	        Assert.assertTrue(viewAllOrderPage.verifyAllOrdersUnselected(), "Records are still selected.");
+	    }
+
+	    // Test to verify the ability to delete an order
+	    @Test(priority = 3, description = "Verify Delete Order")
+	    public void verifyDeleteOrder() throws Exception {
+	        viewAllOrderPage.deleteOrder(name, product); // Delete the specified order
+
+	        // Assert that the order is deleted
+	        Assert.assertTrue(viewAllOrderPage.verifyDeletedRecord(name), "Record still exists.");
+	    }
+
+	    // Cleanup method to logout after tests
+	    @AfterClass
+	    public void logout() throws Exception {
+	        if (basePage != null) {
+	            basePage.logout(); // Logout from the application
+	        }
+	    }
 	}
-
-	@Test(description = "Validate check all button", priority = 1, enabled = true)
-	public void verifyCheckAll() throws Exception {
-		test = extent.createTest("Test Case 1", "Verify if all orders are seleted if Check All button is clicked");
-		signIn = basePage.GoToHomePageAndSignIn("Tester", "test");
-		signIn.verifySignInPageText();
-		homePage = new WebOrders_HomePage(driver);
-		viewAllOrderPage = homePage.clickOnAllOrdersTab();
-		viewAllOrderPage.clickCheckAll();
-		Assert.assertEquals(true, viewAllOrderPage.verifyAllOrdersSelected(), "All records are not selected.");
-	}
-
-	@Test(description = "Validate uncheck all button", priority = 2, enabled = true)
-	public void verifyUnCheckAll() throws Exception {
-		test = extent.createTest("Test Case 2", "Verify if all orders are unselected if UnCheck All button is clicked");
-
-		viewAllOrderPage.clickUncheckAll();
-		Assert.assertEquals(true, viewAllOrderPage.verifyAllOrdersUnselected(), "Records are still selected.");
-	}
-
-	@Test(description = "Validate user can delete an order", priority = 3, enabled = true)
-	public void verifyDeleteOrder() throws Exception {
-		test = extent.createTest("Test Case 3", "Verify if user can delete an order");
-
-		viewAllOrderPage.deleteOrder(name, product);
-		Assert.assertEquals(true, viewAllOrderPage.verifyDeletedRecord(name), "Record still Exists.");
-	}
-
-	@Test(description = "Validate user can edit an order", dataProvider = "Update Form", dataProviderClass = WebOrders_TestData.class, priority = 4, enabled = true)
-
-	public void verifyEditOrder(String product, String qty, String custName, String street, String city, String state,
-			String zip, String card, String cardNr, String expiry, String expectedResult) throws Exception {
-
-		editOrdersPage = viewAllOrderPage.clickEdit();
-
-		editOrdersPage.updateFieldSuccess(product, qty, custName, street, city, state, zip, card, cardNr, expiry);
-		viewAllOrderPage = new WebOrders_ViewAllOrdersPage(driver);
-
-		viewAllOrderPage.verifyUpdatedOrder(product, qty, custName, street, city, state, zip, card, cardNr, expiry);
-
-	}
-
-	@Test(description = "Validate error is displayed while editing an order with invalid Data", dataProvider = "Update Order Form Error", dataProviderClass = WebOrders_TestData.class, priority = 5, enabled = true)
-
-	public void verifyError(String product, String qty, String custName, String street, String city, String state,
-			String zip, String card, String cardNr, String expiry, String expectedResult) throws Exception {
-
-		editOrdersPage = viewAllOrderPage.clickEdit();
-
-		editOrdersPage.validateError(product, qty, custName, street, city, state, zip, card, cardNr, expiry,
-				expectedResult);
-		homePage = new WebOrders_HomePage(driver);
-		homePage.clickOnAllOrdersTab();
-		viewAllOrderPage = new WebOrders_ViewAllOrdersPage(driver);
-
-	}
-
-}

@@ -1,9 +1,7 @@
 package com.webOrders.home;
 
 import java.time.Duration;
-import java.util.ArrayList;
 import java.util.Arrays;
-
 import java.util.List;
 
 import org.openqa.selenium.By;
@@ -16,162 +14,267 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class WebOrders_ViewAllOrdersPage {
 
-	/*
-	 * Verification of webtables. Deletion of records. Check all. Uncheck all. Edit
-	 * any order.
-	 */
-	WebDriver driver;
-	WebDriverWait wait;
+    // WebDriver instance to interact with the browser
+    WebDriver driver;
 
-	public WebOrders_ViewAllOrdersPage(WebDriver driver) {
-		this.driver = driver;
-		this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-		PageFactory.initElements(driver, this);
-	}
+    // WebDriverWait instance for explicit waits
+    WebDriverWait wait;
 
-	@FindBy(xpath = "//table[@id='ctl00_MainContent_orderGrid']")
-	WebElement tblAllOrders;
+    // Constructor to initialize WebDriver, WebDriverWait, and PageFactory elements
+    public WebOrders_ViewAllOrdersPage(WebDriver driver) {
+        this.driver = driver;
+        this.wait = new WebDriverWait(driver, Duration.ofSeconds(10)); // Explicit wait timeout set to 10 seconds
+        PageFactory.initElements(driver, this); // Initialize WebElements using PageFactory
+    }
 
-	@FindBy(xpath = "//table[@id='ctl00_MainContent_orderGrid']//tr")
-	List<WebElement> tblRows;
+    // ============================
+    // Web Elements
+    // ============================
 
-	@FindBy(xpath = "//table[@id='ctl00_MainContent_orderGrid']//tr[2]//td/input[@type='image']")
-	WebElement btnFirstRecordEdit;
+    // Table containing all orders
+    @FindBy(xpath = "//table[@id='ctl00_MainContent_orderGrid']")
+    WebElement tblAllOrders;
 
-	@FindBy(id = "ctl00_MainContent_btnCheckAll")
-	WebElement btnCheckAll;
+    // List of rows in the orders table
+    @FindBy(xpath = "//table[@id='ctl00_MainContent_orderGrid']//tr")
+    List<WebElement> tblRows;
 
-	@FindBy(id = "ctl00_MainContent_btnUncheckAll")
-	WebElement btnUncheckAll;
+    // Edit button for the first record in the table
+    @FindBy(xpath = "//table[@id='ctl00_MainContent_orderGrid']//tr[2]//td/input[@type='image']")
+    WebElement btnFirstRecordEdit;
 
-	@FindBy(id = "ctl00_MainContent_btnDelete")
-	WebElement btnDeleteSelected;
+    // "Check All" button
+    @FindBy(id = "ctl00_MainContent_btnCheckAll")
+    WebElement btnCheckAll;
 
-	public void validateTableIsDisplayed() {
-		tblAllOrders.isDisplayed();
-	}
+    // "Uncheck All" button
+    @FindBy(id = "ctl00_MainContent_btnUncheckAll")
+    WebElement btnUncheckAll;
 
-	public WebElement getRowElement(String name, String product) {
-		String dynamicXPath = "//table[@id='ctl00_MainContent_orderGrid']//td[contains(text(),'" + name
-				+ "')]/following-sibling::td[contains(text(),'" + product + "')]";
-		return driver.findElement(By.xpath(dynamicXPath));
-	}
+    // "Delete Selected" button
+    @FindBy(id = "ctl00_MainContent_btnDelete")
+    WebElement btnDeleteSelected;
 
-	// Edit Button
-	// "//table[@id='ctl00_MainContent_orderGrid']//td[contains(text(),'Paul
-	// Brown')]/following-sibling::td[contains(text(),'product')]/following-sibling::td//input"
-	// Check Box
-	// "//table[@id='ctl00_MainContent_orderGrid']//td[contains(text(),'Paul
-	// Brown')]/following-sibling::td[contains(text(),'product')]/preceding-sibling::td//input"
+    // ============================
+    // Verify Table
+    // ============================
 
-	public void clickCheckBox(String name, String product) {
-		WebElement rowElement = getRowElement(name, product);
-		rowElement.findElement(By.xpath("./preceding-sibling::td//input")).click();
-	}
+    /**
+     * Method to validate that the orders table is displayed on the page.
+     */
+    public void validateTableIsDisplayed() {
+        wait.until(ExpectedConditions.visibilityOf(tblAllOrders)); // Wait until the table is visible
+    }
 
-	public WebOrders_EditOrderPage clickEdit(String name, String product) {
-		WebElement rowElement = getRowElement(name, product);
-		rowElement.findElement(By.xpath("./following-sibling::td//input")).click();
-		return new WebOrders_EditOrderPage(driver);
-	}
+    // ============================
+    // Dynamic Row
+    // ============================
 
-	public WebOrders_EditOrderPage clickEdit() {
+    /**
+     * Method to get a specific row element based on the name and product.
+     *
+     * @param name    Name of the customer
+     * @param product Product name
+     * @return WebElement representing the row
+     */
+    public WebElement getRowElement(String name, String product) {
+        String xpath = "//table[@id='ctl00_MainContent_orderGrid']"
+                     + "//td[contains(text(),'" + name + "')]"
+                     + "/following-sibling::td[contains(text(),'" + product + "')]";
+        return driver.findElement(By.xpath(xpath)); // Find and return the row element
+    }
 
-		btnFirstRecordEdit.click();
+    // ============================
+    // Check Box
+    // ============================
 
-		return new WebOrders_EditOrderPage(driver);
-	}
+    /**
+     * Method to click the checkbox for a specific row based on the name and product.
+     *
+     * @param name    Name of the customer
+     * @param product Product name
+     */
+    public void clickCheckBox(String name, String product) {
+        WebElement row = getRowElement(name, product); // Get the row element
+        row.findElement(By.xpath("./preceding-sibling::td//input")).click(); // Click the checkbox in the row
+    }
 
-	public void clickCheckAll() {
+    // ============================
+    // Edit
+    // ============================
 
-		wait.until(ExpectedConditions.elementToBeClickable(btnCheckAll)).click();
-	}
+    /**
+     * Method to click the edit button for a specific row based on the name and product.
+     *
+     * @param name    Name of the customer
+     * @param product Product name
+     * @return WebOrders_EditOrderPage instance
+     */
+    public WebOrders_EditOrderPage clickEdit(String name, String product) {
+        WebElement row = getRowElement(name, product); // Get the row element
+        row.findElement(By.xpath("./following-sibling::td//input")).click(); // Click the edit button in the row
+        return new WebOrders_EditOrderPage(driver); // Return the next page object
+    }
 
-	public void clickUncheckAll() {
-		wait.until(ExpectedConditions.elementToBeClickable(btnUncheckAll)).click();
+    /**
+     * Method to click the edit button for the first record in the table.
+     *
+     * @return WebOrders_EditOrderPage instance
+     */
+    public WebOrders_EditOrderPage clickEdit() {
+        wait.until(ExpectedConditions.elementToBeClickable(btnFirstRecordEdit)); // Wait until the button is clickable
+        btnFirstRecordEdit.click(); // Click the edit button
+        return new WebOrders_EditOrderPage(driver); // Return the next page object
+    }
 
-	}
+    // ============================
+    // Check All
+    // ============================
 
-	public void clickDelete() {
-		wait.until(ExpectedConditions.elementToBeClickable(btnDeleteSelected)).click();
-	}
+    /**
+     * Method to click the "Check All" button.
+     */
+    public void clickCheckAll() {
+        wait.until(ExpectedConditions.elementToBeClickable(btnCheckAll)).click(); // Wait and click the button
+    }
 
-	public boolean verifyAllOrdersSelected() {
+    /**
+     * Method to click the "Uncheck All" button.
+     */
+    public void clickUncheckAll() {
+        wait.until(ExpectedConditions.elementToBeClickable(btnUncheckAll)).click(); // Wait and click the button
+    }
 
-		// clickCheckAll();
-		List<WebElement> checkboxs = tblAllOrders.findElements(By.xpath("//input[@type = 'checkbox']"));
-		for (WebElement checked : checkboxs) {
-			if (checked.isSelected() != true) {
-				return false;
-			}
+    /**
+     * Method to click the "Delete Selected" button.
+     */
+    public void clickDelete() {
+        wait.until(ExpectedConditions.elementToBeClickable(btnDeleteSelected)).click(); // Wait and click the button
+    }
 
-		}
-		return true;
+    // ============================
+    // Verify Checkbox
+    // ============================
 
-	}
+    /**
+     * Method to verify if all checkboxes in the table are selected.
+     *
+     * @return true if all checkboxes are selected, false otherwise
+     */
+    public boolean verifyAllOrdersSelected() {
+        List<WebElement> checkboxes = tblAllOrders.findElements(By.xpath(".//input[@type='checkbox']"));
+        for (WebElement checkbox : checkboxes) {
+            if (!checkbox.isSelected()) {
+                return false; // Return false if any checkbox is not selected
+            }
+        }
+        return true; // Return true if all checkboxes are selected
+    }
 
-	public boolean verifyAllOrdersUnselected() {
+    /**
+     * Method to verify if all checkboxes in the table are unselected.
+     *
+     * @return true if all checkboxes are unselected, false otherwise
+     */
+    public boolean verifyAllOrdersUnselected() {
+        List<WebElement> checkboxes = tblAllOrders.findElements(By.xpath(".//input[@type='checkbox']"));
+        for (WebElement checkbox : checkboxes) {
+            if (checkbox.isSelected()) {
+                return false; // Return false if any checkbox is selected
+            }
+        }
+        return true; // Return true if all checkboxes are unselected
+    }
 
-		// clickUncheckAll();
-		List<WebElement> checkboxs = tblAllOrders.findElements(By.xpath("//input[@type = 'checkbox']"));
-		for (WebElement checked : checkboxs) {
-			if (checked.isSelected()) {
-				return false;
-			}
+    // ============================
+    // Delete Order
+    // ============================
 
-		}
-		return true;
+    /**
+     * Method to delete a specific order based on the name and product.
+     *
+     * @param name    Name of the customer
+     * @param product Product name
+     */
+    public void deleteOrder(String name, String product) {
+        clickCheckBox(name, product); // Select the checkbox for the order
+        clickDelete(); // Click the delete button
+    }
 
-	}
+    /**
+     * Method to verify if a specific record is deleted based on the name.
+     *
+     * @param name Name of the customer
+     * @return true if the record is deleted, false otherwise
+     */
+    public boolean verifyDeletedRecord(String name) {
+        String pageSource = driver.getPageSource(); // Get the page source
+        return !pageSource.contains(name); // Return true if the name is not found in the page source
+    }
 
-	public void deleteOrder(String name, String product) {
-		clickCheckBox(name, product);
-		clickDelete();
+    // ============================
+    // Updated Order Verification
+    // ============================
 
-	}
+    /**
+     * Method to verify if an updated order exists in the table.
+     *
+     * @param values Array of expected values to match in the row
+     */
+    public void verifyUpdatedOrder(String... values) {
+        wait.until(ExpectedConditions.visibilityOf(tblAllOrders)); // Wait until the table is visible
+        boolean orderFound = false;
 
-	public boolean verifyDeletedRecord(String name) {
-		String pgSource = driver.getPageSource();
-		if (pgSource.contentEquals(name)) {
-			return false;
-		}
-		return true;
-	}
+        for (int i = 1; i < tblRows.size(); i++) {
+            WebElement row = tblRows.get(i); // Get the row element
+            String rowText = row.getText(); // Get the text of the row
+            boolean matched = true;
 
-	public void verifyUpdatedOrder(String... values) {
-		for (int i = 1; i < tblRows.size(); i++) { // Start from 1 assuming the first row is a header
-			WebElement row = tblRows.get(i);
-			List<WebElement> columns = row.findElements(By.tagName("td")); // Assuming "td" is the tag for table cells
+            for (String value : values) {
+                String expected = normalize(value); // Normalize the expected value
+                String actual = normalize(rowText); // Normalize the actual row text
+                if (!actual.contains(expected)) {
+                    matched = false; // Set matched to false if any value does not match
+                    break;
+                }
+            }
 
-			// Create a set to track which values have been found in the current row
-			List<String> foundValues = new ArrayList<>();
+            if (matched) {
+                orderFound = true; // Set orderFound to true if all values match
+                break;
+            }
+        }
 
-			// Check each column in the row
-			for (int j = 1; j < (columns.size() - 1); j++) {
-				String columnVal = columns.get(j).getText();
-				System.out.println(columnVal);
+        if (!orderFound) {
+            throw new AssertionError("No row contains all the provided values: " + Arrays.toString(values));
+        }
 
-				// Check if the current column value matches any of the expected values
-				for (String value : values) {
-					if (columnVal.equals(value)) {
-						//System.out.println(columnVal + " : " + value);
+        System.out.println("Order verification successful");
+    }
 
-						foundValues.add(value); // Add the matching value to the set
-						break; // No need to check other values once a match is found
-					}
-				}
-			}
-			System.out.println(values.length + "  " + foundValues.size());
-			// After checking all columns in the row, verify if all values are found
-			if (foundValues.size() == values.length) {
-				// All values are found in this row, you can return or break if only one
-				// matching row is needed
-				return;
-			}
-		}
+    // ============================
+    // Data Normalization
+    // ============================
 
-		// If no row contains all the values, throw an error
-		throw new AssertionError("No row contains all the provided values: " + Arrays.toString(values));
-	}
+    /**
+     * Method to normalize a string for comparison.
+     *
+     * @param value Input string
+     * @return Normalized string
+     */
+    private String normalize(String value) {
+        if (value == null) {
+            return ""; // Return an empty string if the value is null
+        }
 
+        value = value.trim().toLowerCase(); // Trim and convert to lowercase
+
+        // Convert date format from "12/2029" to "12/29"
+        if (value.matches("\\d{2}/20\\d{2}")) {
+            value = value.substring(0, 3) + value.substring(5);
+        }
+
+        value = value.replace(",", "").replace(" ", ""); // Remove commas and spaces
+        return value; // Return the normalized value
+    }
 }

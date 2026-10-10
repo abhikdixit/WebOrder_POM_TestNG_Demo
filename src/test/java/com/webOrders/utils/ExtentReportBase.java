@@ -14,59 +14,73 @@ import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import com.aventstack.extentreports.reporter.configuration.Theme;
 
 public class ExtentReportBase {
-	
-	 static ExtentReports extent;
-	    static ExtentSparkReporter reporter;
 
-	    public static ExtentReports ExtentReportGenerator() {
-	        reporter = new ExtentSparkReporter("./ExtentReport/SingleReport.html");
-	        extent = new ExtentReports();
-	        extent.attachReporter(reporter);
+    // Singleton instance of ExtentReports
+    private static ExtentReports extent;
 
-	        extent.setSystemInfo("OS", System.getProperty("os.name"));
-	        extent.setSystemInfo("Browser", "Chrome");
+    /**
+     * Creates and configures an ExtentReports instance.
+     *
+     * @param reportName Name of the report file.
+     * @param browser    Browser name for the test execution.
+     * @return Configured ExtentReports instance.
+     */
+    public static ExtentReports createExtentReport(String reportName, String browser) {
+        if (extent == null) {
+            // Define the report file path
+            String path = System.getProperty("user.dir") + "/ExtentReport/" + reportName;
 
-	        reporter.config().setDocumentTitle("Consolidate ExtentReport Result");
-	        reporter.config().setTheme(Theme.DARK);
-	        reporter.config().setTimeStampFormat("EEEE, MMMM dd, yyyy, hh:mm a '('zzz')'");
-	        return extent;
-	    }
+            // Initialize ExtentSparkReporter with the report path
+            ExtentSparkReporter reporter = new ExtentSparkReporter(path);
 
-	    public static String getScreenhot(WebDriver driver, String screenshotName) throws Exception {
-	        String dateName = new SimpleDateFormat("yyyyMMddhhmmss").format(new Date());
-	        TakesScreenshot ts = (TakesScreenshot) driver;
-	        File source = ts.getScreenshotAs(OutputType.FILE);
-	        String destination = System.getProperty("user.dir") + "/Screenshot_fail/" + screenshotName + dateName + ".png";
-	        File finalDestination = new File(destination);
-	        FileUtils.copyFile(source, finalDestination);
-	        return destination;
-	    }
+            // Initialize ExtentReports and attach the reporter
+            extent = new ExtentReports();
+            extent.attachReporter(reporter);
 
-	    public static String getScreenhotSuccess(WebDriver driver, String screenshotName) throws Exception {
-	        String dateName = new SimpleDateFormat("yyyyMMddhhmmss").format(new Date());
-	        TakesScreenshot ts = (TakesScreenshot) driver;
-	        File source = ts.getScreenshotAs(OutputType.FILE);
-	        String destination = System.getProperty("user.dir") + "/Screenshot_success/" + screenshotName + dateName + ".png";
-	        File finalDestination = new File(destination);
-	        FileUtils.copyFile(source, finalDestination);
-	        return destination;
-	    }
+            // Set system information for the report
+            extent.setSystemInfo("OS", System.getProperty("os.name"));
+            extent.setSystemInfo("Browser", browser);
+            extent.setSystemInfo("Tester", "Abhi");
 
-	    public static ExtentReports CreateExtentReport(String reportName, String browser) {
-	        ExtentSparkReporter htmlReporter = new ExtentSparkReporter("./ExtentReport/" + reportName);
-	        extent = new ExtentReports();
-	        extent.attachReporter(htmlReporter);
+            // Configure the report appearance
+            reporter.config().setDocumentTitle("WebOrders Automation Report");
+            reporter.config().setReportName("WebOrders Regression Execution");
+            reporter.config().setTheme(Theme.DARK);
+        }
+        return extent;
+    }
 
-	        extent.setSystemInfo("OS", System.getProperty("os.name"));
-	        extent.setSystemInfo("Browser", browser);
+    /**
+     * Captures a screenshot and saves it to the specified folder.
+     *
+     * @param driver        WebDriver instance.
+     * @param screenshotName Name of the screenshot file.
+     * @return Absolute path of the saved screenshot.
+     * @throws Exception If an error occurs during screenshot capture.
+     */
+    public static String captureScreenshot(WebDriver driver, String screenshotName) throws Exception {
+        // Generate a timestamp for the screenshot file
+        String time = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
 
-	        htmlReporter.config().setDocumentTitle("Regression Test");
-	        htmlReporter.config().setReportName(reportName);
-	        htmlReporter.config().setTheme(Theme.DARK);
-	        htmlReporter.config().setTimeStampFormat("EEEE, MMMM dd, yyyy, hh:mm a '('zzz')'");
-	        
-	        return extent;
-	    }
+        // Capture the screenshot as a file
+        File source = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
 
+        // Define the folder path for saving screenshots
+        String folder = System.getProperty("user.dir") + "/Screenshot_fail/";
 
+        // Create the folder if it does not exist
+        File directory = new File(folder);
+        if (!directory.exists()) {
+            directory.mkdirs();
+        }
+
+        // Define the destination file path
+        String destination = folder + screenshotName + "_" + time + ".png";
+        File finalFile = new File(destination);
+
+        // Copy the screenshot file to the destination
+        FileUtils.copyFile(source, finalFile);
+
+        return destination;
+    }
 }

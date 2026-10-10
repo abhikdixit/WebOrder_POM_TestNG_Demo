@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="TestSuite" time="27.787" tests="3" errors="0" skipped="0" failures="0">
+<testsuite name="TestSuite" time="50.536" tests="10" errors="0" skipped="4" failures="0">
   <properties>
-    <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
-    <property name="java.vm.version" value="17.0.8+9-LTS-211"/>
-    <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk-17\bin"/>
+    <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
+    <property name="java.vm.version" value="16.0.2+7-67"/>
+    <property name="sun.boot.library.path" value="C:\Users\abhin\.p2\pool\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_16.0.2.v20210721-1149\jre\bin"/>
     <property name="maven.multiModuleProjectDirectory" value="C:\Training_Scripts\Selenium Training Data\WebOrder_POM_TestNG_Demo"/>
     <property name="java.vm.vendor" value="Oracle Corporation"/>
     <property name="java.vendor.url" value="https://java.oracle.com/"/>
     <property name="guice.disable.misplaced.annotation.check" value="true"/>
     <property name="path.separator" value=";"/>
-    <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM"/>
+    <property name="java.vm.name" value="OpenJDK 64-Bit Server VM"/>
     <property name="sun.os.patch.level" value=""/>
     <property name="user.script" value=""/>
     <property name="user.country" value="US"/>
@@ -17,46 +17,74 @@
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
     <property name="user.dir" value="C:\Training_Scripts\Selenium Training Data\WebOrder_POM_TestNG_Demo"/>
     <property name="java.vm.compressedOopsMode" value="Zero based"/>
-    <property name="java.runtime.version" value="17.0.8+9-LTS-211"/>
+    <property name="java.runtime.version" value="16.0.2+7-67"/>
     <property name="os.arch" value="amd64"/>
     <property name="java.io.tmpdir" value="C:\Users\abhin\AppData\Local\Temp\"/>
     <property name="line.separator" value="&#10;"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="user.variant" value=""/>
-    <property name="os.name" value="Windows 11"/>
-    <property name="classworlds.conf" value="C:\Training_Scripts\Selenium Training Data\workspace\.metadata\.plugins\org.eclipse.m2e.launching\launches\m2conf16137817701590430213.tmp"/>
+    <property name="os.name" value="Windows 10"/>
+    <property name="classworlds.conf" value="C:\Training_Scripts\Selenium Training Data\Selenium_RestAPI_Framework\.metadata\.plugins\org.eclipse.m2e.launching\launches\m2conf12675806402247466476.tmp"/>
     <property name="sun.jnu.encoding" value="Cp1252"/>
-    <property name="java.library.path" value="C:\Program Files\Java\jdk-17\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:/Users/abhin/.p2/pool/plugins/org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_16.0.2.v20210721-1149/jre/bin/server;C:/Users/abhin/.p2/pool/plugins/org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_16.0.2.v20210721-1149/jre/bin;C:\Program Files (x86)\TRICENTIS\Tosca Testsuite\ToscaCommander;;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\ProgramData\chocolatey\bin;C:\Program Files\dotnet\;\usr\local\bin;C:\Users\abhin\AppData\Local\Programs\Python\Python311;C:\Users\abhin\AppData\Local\Programs\Python\Python311\Scripts;C:\Users\abhin\AppData\Local\Programs\Python\Python311\Lib\site-packages;C:\Users\abhin\AppData\Local\Android\Sdk;C:\Users\abhin\AppData\Local\Android\Sdk\tools;C:\Users\abhin\AppData\Local\Android\Sdk\tools\bin;C:\Users\abhin\AppData\Local\Android\Sdk\platform-tools;C:\Program Files\Microsoft SQL Server\150\Tools\Binn\;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn\;C:\Program Files\MySQL\MySQL Server 8.0\bin;C:\Program Files\Git\cmd;C:\apache-maven-3.9.6\bin;C:\Program Files\Java\jdk-17\bin;C:\Program Files\nodejs\;C:\Training_Scripts\NUnit.Console-3.19.2\bin\net8.0;C:\Program Files\k6\;C:\Program Files\PowerShell\7\;C:\Program Files\Docker\Docker\resources\bin;c:\Users\abhin\AppData\Local\Programs\cursor\resources\app\codeBin;C:\Program Files\Java\jdk1.8.0_202\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\Program Files\nodejs\;C:\ProgramData\chocolatey\bin;C:\Program Files\dotnet\;\usr\local\bin;C:\Users\abhin\AppData\Local\Programs\Python\Python311;C:\Users\abhin\AppData\Local\Programs\Python\Python311\Scripts;C:\Users\abhin\AppData\Local\Programs\Python\Python311\Lib\site-packages;C:\Users\abhin\AppData\Local\Android\Sdk;C:\Users\abhin\AppData\Local\Android\Sdk\tools;C:\Users\abhin\AppData\Local\Android\Sdk\tools\bin;C:\Users\abhin\AppData\Local\Android\Sdk\platform-tools;C:\Program Files\Microsoft SQL Server\150\Tools\Binn\;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn\;C:\Training_Scripts\PycharmProjects\Selenium_Demo\venv\Scripts;C:\Users\abhin\AppData\Local\Programs\Python\Python310\Scripts\;C:\Users\abhin\AppData\Local\Program;C:\Browser_Driver\;;C:\Users\abhin\AppData\Roaming\npm;C:\Users\abhin\AppData\Local\Microsoft\WindowsApps;C:\Users\abhin\.dotnet\tools;C:\Users\abhin\AppData\Local\Programs\Ollama;C:\Users\abhin\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\abhin\AppData\Local\Programs\cursor\resources\app\bin;C:\Users\abhin\AppData\Local\Programs\Windsurf\bin;C:\WINDOWS\System32;;."/>
+    <property name="java.library.path" value="C:\Users\abhin\.p2\pool\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_16.0.2.v20210721-1149\jre\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:/Users/abhin/.p2/pool/plugins/org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_16.0.2.v20210721-1149/jre/bin/server;C:/Users/abhin/.p2/pool/plugins/org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_16.0.2.v20210721-1149/jre/bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\ProgramData\chocolatey\bin;C:\Program Files\dotnet\;\usr\local\bin;C:\Users\abhin\AppData\Local\Programs\Python\Python311;C:\Users\abhin\AppData\Local\Programs\Python\Python311\Scripts;C:\Users\abhin\AppData\Local\Programs\Python\Python311\Lib\site-packages;C:\Users\abhin\AppData\Local\Android\Sdk;C:\Users\abhin\AppData\Local\Android\Sdk\tools;C:\Users\abhin\AppData\Local\Android\Sdk\tools\bin;C:\Users\abhin\AppData\Local\Android\Sdk\platform-tools;C:\Program Files\Microsoft SQL Server\150\Tools\Binn\;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn\;C:\Program Files\MySQL\MySQL Server 8.0\bin;C:\Program Files\Git\cmd;C:\apache-maven-3.9.6\bin;C:\Program Files\Java\jdk-17\bin;C:\Program Files\nodejs\;C:\Training_Scripts\NUnit.Console-3.19.2\bin\net8.0;C:\Program Files\k6\;C:\Program Files\Docker\Docker\resources\bin;C:\gradle-9.6.1\bin;C:\Program Files\PowerShell\7\;c:\Users\abhin\AppData\Local\Programs\cursor\resources\app\codeBin;C:\Program Files\Java\jdk1.8.0_202\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\Program Files\nodejs\;C:\ProgramData\chocolatey\bin;C:\Program Files\dotnet\;\usr\local\bin;C:\Users\abhin\AppData\Local\Programs\Python\Python311;C:\Users\abhin\AppData\Local\Programs\Python\Python311\Scripts;C:\Users\abhin\AppData\Local\Programs\Python\Python311\Lib\site-packages;C:\Users\abhin\AppData\Local\Android\Sdk;C:\Users\abhin\AppData\Local\Android\Sdk\tools;C:\Users\abhin\AppData\Local\Android\Sdk\tools\bin;C:\Users\abhin\AppData\Local\Android\Sdk\platform-tools;C:\Program Files\Microsoft SQL Server\150\Tools\Binn\;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn\;C:\Training_Scripts\PycharmProjects\Selenium_Demo\venv\Scripts;C:\Users\abhin\AppData\Local\Programs\Python\Python310\Scripts\;C:\Users\abhin\AppData\Local\Program;C:\Browser_Driver\;;C:\Users\abhin\AppData\Roaming\npm;C:\Users\abhin\AppData\Local\Microsoft\WindowsApps;C:\Users\abhin\.dotnet\tools;C:\Users\abhin\AppData\Local\Programs\Ollama;C:\Users\abhin\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\abhin\AppData\Local\Programs\cursor\resources\app\bin;C:\Users\abhin\AppData\Local\Programs\Windsurf\bin;C:\WINDOWS\System32;;."/>
     <property name="jdk.debug" value="release"/>
-    <property name="java.class.version" value="61.0"/>
+    <property name="java.class.version" value="60.0"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="os.version" value="10.0"/>
     <property name="user.home" value="C:\Users\abhin"/>
     <property name="user.timezone" value="Asia/Calcutta"/>
     <property name="file.encoding" value="Cp1252"/>
-    <property name="java.specification.version" value="17"/>
+    <property name="java.specification.version" value="16"/>
     <property name="user.name" value="abhin"/>
     <property name="java.class.path" value="C:\Users\abhin\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_1.18.0.20210618-2246\jars\plexus-classworlds-2.6.0.jar"/>
-    <property name="java.vm.specification.version" value="17"/>
+    <property name="java.vm.specification.version" value="16"/>
     <property name="sun.arch.data.model" value="64"/>
     <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher -B test"/>
-    <property name="java.home" value="C:\Program Files\Java\jdk-17"/>
+    <property name="java.home" value="C:\Users\abhin\.p2\pool\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_16.0.2.v20210721-1149\jre"/>
     <property name="user.language" value="en"/>
     <property name="java.specification.vendor" value="Oracle Corporation"/>
-    <property name="java.vm.info" value="mixed mode, sharing"/>
-    <property name="java.version" value="17.0.8"/>
-    <property name="native.encoding" value="Cp1252"/>
+    <property name="java.vm.info" value="mixed mode"/>
+    <property name="java.version" value="16.0.2"/>
     <property name="java.vendor" value="Oracle Corporation"/>
     <property name="maven.home" value="C:\Training_Scripts\Selenium Training Data\WebOrder_POM_TestNG_Demo\EMBEDDED"/>
     <property name="file.separator" value="\"/>
-    <property name="java.version.date" value="2023-07-18"/>
+    <property name="java.version.date" value="2021-07-20"/>
     <property name="java.vendor.url.bug" value="https://bugreport.java.com/bugreport/"/>
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="sun.cpu.endian" value="little"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase name="loginTest" classname="com.webOrders.test.WebOrders_Login" time="11.148"/>
-  <testcase name="urlTest" classname="com.webOrders.test.WebOrders_Login" time="8.58"/>
-  <testcase name="verifyText" classname="com.webOrders.test.WebOrders_Login" time="8.059"/>
+  <testcase name="loginTest" classname="com.webOrders.test.WebOrders_Login" time="17.227"/>
+  <testcase name="urlTest" classname="com.webOrders.test.WebOrders_Login" time="16.911"/>
+  <testcase name="verifyText" classname="com.webOrders.test.WebOrders_Login" time="10.696"/>
+  <testcase name="createAndVerifyOrder" classname="com.webOrders.test.WebOrder_Order_Test" time="0">
+    <skipped/>
+    <system-out><![CDATA[Launching edge browser..
+]]></system-out>
+    <system-err><![CDATA[Jul 22, 2026 2:55:49 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find CDP implementation matching 150
+Jul 22, 2026 2:55:49 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$4
+WARNING: Unable to find version of CDP to use for 150.0.4078.83. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.35.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
+]]></system-err>
+  </testcase>
+  <testcase name="verifyCheckAll" classname="com.webOrders.test.WebOrder_ViewAllOrders_Test" time="3.8"/>
+  <testcase name="verifyUnCheckAll" classname="com.webOrders.test.WebOrder_ViewAllOrders_Test" time="0.463"/>
+  <testcase name="verifyDeleteOrder" classname="com.webOrders.test.WebOrder_ViewAllOrders_Test" time="1.439"/>
+  <testcase name="verifyEditOrder" classname="com.webOrders.test.WebOrder_ViewAllOrders_Test" time="0">
+    <skipped/>
+  </testcase>
+  <testcase name="verifyError" classname="com.webOrders.test.WebOrder_ViewAllOrders_Test" time="0">
+    <skipped/>
+  </testcase>
+  <testcase name="verifyProductPrice" classname="com.webOrders.test.WebOrder_Product_Price_Discount_Verification" time="0">
+    <skipped/>
+    <system-out><![CDATA[Launching edge browser..
+]]></system-out>
+    <system-err><![CDATA[Jul 22, 2026 2:56:02 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find CDP implementation matching 150
+Jul 22, 2026 2:56:02 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$4
+WARNING: Unable to find version of CDP to use for 150.0.4078.83. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.35.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
+]]></system-err>
+  </testcase>
 </testsuite>

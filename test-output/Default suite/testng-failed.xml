@@ -9,7 +9,9 @@
           <include name="tearDown"/>
           <include name="loginTest"/>
           <include name="takeScreenshot"/>
+          <include name="verifyText"/>
           <include name="initializeTestBaseSetup"/>
+          <include name="urlTest"/>
           <include name="SetUp"/>
         </methods>
       </class> <!-- com.webOrders.test.WebOrders_Login -->
